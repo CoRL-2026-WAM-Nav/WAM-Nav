@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="WAM-Nav: a latent world-action model for embodied visual navigation that jointly learns action generation and latent future visual prediction, supporting image-goal, point-goal, and no-goal navigation in a single policy.">
+  <meta property="og:title" content="WAM-Nav: Asymmetric Latent World-Action Modeling for Unified Visual Navigation"/>
+  <meta property="og:description" content="WAM-Nav jointly models long-horizon actions and short-horizon latent visual foresight via a shared Diffusion Transformer, achieving strong zero-shot generalization and sim-to-real transfer."/>
+  <meta property="og:url" content=""/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/approach.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="WAM-Nav: Asymmetric Latent World-Action Modeling for Unified Visual Navigation">
+  <meta name="twitter:description" content="A latent world-action model that unifies action generation and visual foresight for image-goal, point-goal, and no-goal navigation.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/approach.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Embodied Visual Navigation, World Action Model, Diffusion Transformer, Latent World Model, Visual Navigation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+
+
+  <title>WAM-Nav: Asymmetric Latent World-Action Modeling for Unified Visual Navigation</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.png"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">WAM-Nav: Asymmetric Latent World-Action Modeling for Unified Visual Navigation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Anonymous</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Anonymous Institution</span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+
+                  <!-- Video Link -->
+                  <!--
+                  <span class="link-block">
+                    <a href="#"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Video</span>
+                    </a>
+                  </span>
+                  -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser image-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/introduction.png"
+           class="interpolation-image"
+           alt="Overview of the WAM-Nav paradigm and performance."/>
+      <h2 class="subtitle has-text-centered">
+        WAM-Nav enables proactive, foresight-driven visual navigation across image-goal, point-goal, and no-goal tasks with zero-shot sim-to-real transfer.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser image -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Visual navigation requires generating smooth and collision-free trajectories under complex geometric and physical constraints. Existing reactive policies that directly map observations to actions lack anticipatory reasoning, limiting their ability to proactively avoid obstacles. While visual imagination offers predictive foresight, conventional modular approaches separate scene prediction from policy learning, often leading to error accumulation and inefficient inference.
+          </p>
+          <p>
+            To address these limitations, we propose <b>WAM-Nav</b>, a Latent World-Action Model for embodied visual navigation that jointly learns action generation and latent future visual prediction, enabling more robust and foresighted navigation decisions without compromising inference efficiency. Specifically, WAM-Nav utilizes a shared Diffusion Transformer for asymmetric joint diffusion to concurrently generate long-horizon actions and short-horizon visual foresight, reducing the inference latency and visual error accumulation inherent in multi-step autoregressive rollouts. To further encourage smooth and consistent trajectory generation, we introduce a dual-stream contextual conditioning mechanism that integrates episode-level ego-motion history with sequential visual observations. Combined with a unified goal alignment module that preserves balanced representations across goal types, WAM-Nav naturally supports image-goal, point-goal, and no-goal navigation within a single policy. 
+          </p>
+          <p>
+            Extensive experiments on the challenging <i>ClutterScenes</i> and <i>InternScenes</i> benchmarks demonstrate strong generalization of WAM-Nav, particularly on image-goal and point-goal navigation, where it improves success rates by <b>15.7%</b> and <b>3.3%</b>, respectively. Real-world deployment further validates effective zero-shot sim-to-real transfer, achieving an average <b>85%</b> task success rate across diverse indoor and outdoor environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<!-- End image carousel -->
+
+<!-- Framework. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+        <h2 class="title is-3">Approach</h2>
+        <img src="./static/images/approach.png"
+                 class="interpolation-image"
+                 alt="Architecture overview of the WAM-Nav framework."/>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+        <div class="content has-text-justified">
+          <p>WAM-Nav consists of three key components that jointly enable unified, foresight-driven visual navigation:</p>
+          <p><b>(1) Unified Goal Alignment.</b> Heterogeneous navigation goals are projected into complementary visual-semantic and geometric queries, preserving modality-specific information while enabling balanced performance across image-goal, point-goal, and no-goal exploration within a single policy.</p>
+          <p><b>(2) Dual-Stream Contextual Conditioning (DSCC).</b> A goal-modulated visual memory stream captures local spatial geometry from historical RGB observations, while a trajectory-aware motion history stream encodes kinematic momentum from episode-level ego-motion. The fused context condition <i>C</i> constrains subsequent generation to be both geometrically safe and kinematically smooth.</p>
+          <p><b>(3) Asymmetric Action-Foresight Generation.</b> Conditioned on <i>C</i>, a shared Diffusion Transformer performs flow-matching-based asymmetric joint diffusion: long-horizon action trajectories are generated together with short-horizon latent visual foresight in a compact representation space. This design couples perception and control while avoiding the latency and error accumulation of multi-step autoregressive visual rollouts.</p>
+          <p>During deployment, WAM-Nav operates in a receding-horizon control loop: candidate trajectories are sampled via an Euler ODE solver, and the initial action segment is executed at each step, balancing closed-loop reactivity with long-horizon spatiotemporal foresight.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+ 
+<!-- Video carousel -->
+<section class="hero is-small is light">
+  <div class="hero-body">
+    <div class="container is-centered has-text-centered">
+      <h2 class="title is-3">Training &amp; Benchmarks</h2>
+      <div class="content has-text-justified is-max-desktop" style="margin: 0 auto 1.5rem;">
+        <p>
+          WAM-Nav is trained on the large-scale visual navigation dataset VLN-N1, built upon six categories of 3D scene assets (Replica, Matterport3D, Gibson, 3D-FRONT, HSSD, and HM3D) with over 400 hours and 200K+ collision-free trajectories. We evaluate zero-shot generalization on IsaacSim using ClearPath Dingo across <i>ClutterScenes</i> (easy/hard) and <i>InternScenes</i> (home/commercial), covering image-goal, point-goal, and no-goal navigation with 6,000 episodes in total. Compared with strong baselines (GNM, ViNT, NoMaD, NWM, NavDP, and others), WAM-Nav achieves the best average performance across all three tasks: <b>50.2% SR / 48.2% SPL</b> on image-goal, <b>80.4% SR / 78.0% SPL</b> on point-goal, and <b>168.9 m²</b> explored area in no-goal exploration.
+        </p>
+      </div>
+      <img src="./static/images/dataset_table_new.png"
+                 class="interpolation-image"
+                 alt="Performance comparison across ClutterScenes and InternScenes benchmarks."/>
+
+      <h2 class="title is-4" style="margin-top: 2.5rem;">Evaluation in Simulation</h2>
+      <div class="content has-text-justified is-max-desktop" style="margin: 0 auto 1.5rem;">
+        <p>
+          Qualitative results demonstrate that WAM-Nav proactively avoids obstacles, generates smooth and consistent trajectories, and produces decoded latent foresight closely aligned with ground-truth observations.
+        </p>
+      </div>
+      <div id="sim-results-carousel" class="carousel sim-results-carousel is-centered has-text-centered is-max-desktop content">
+        <div class="item">
+          <div class="video-grid-2x2">
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_2.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_3.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_4.MP4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="video-grid-2x2">
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_5.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_6.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_7.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_8.MP4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="video-grid-2x2">
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_9.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_10.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_11.MP4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-cell">
+              <video controls muted loop playsinline>
+                <source src="static/videos/WAM_sim_demo_12.MP4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div id="results-carousel" class="carousel results-carousel is-centered has-text-centered is-max-desktop content">
+        
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo5.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo6.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo7.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo8.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop width="75%">
+            <source src="static/videos/data_demo9.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!--
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-centered has-text-centered">
+      <h2 class="title is-3">Evaluation in Simulation</h2>
+      <div class="content has-text-justified is-max-desktop" style="margin: 0 auto 1.5rem;">
+        <p>
+          Compared with strong baselines (GNM, ViNT, NoMaD, NWM, NavDP, and others), WAM-Nav achieves the best average performance across all three tasks: <b>50.2% SR / 48.2% SPL</b> on image-goal, <b>80.4% SR / 78.0% SPL</b> on point-goal, and <b>168.9 m²</b> explored area in no-goal exploration. Qualitative results show that WAM-Nav proactively avoids obstacles and produces smoother, more consistent trajectories than reactive policies, with decoded latent foresight closely aligned to ground-truth observations.
+        </p>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel is-centered has-text-centered is-max-desktop content">
+        
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop width="75%">
+            <source src="static/videos/sim_demo1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop width="75%">
+            <source src="static/videos/sim_demo2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop width="75%">
+            <source src="static/videos/sim_demo3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop width="75%">
+            <source src="static/videos/sim_demo4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop width="75%">
+            <source src="static/videos/sim_demo5.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop width="75%">
+            <source src="static/videos/sim_demo6.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-centered has-text-centered">
+      <h2 class="title is-3">Zero-Shot Real-World Deployment</h2>
+      <div class="content has-text-justified is-max-desktop" style="margin: 0 auto 1.5rem;">
+        <p>
+          We deploy WAM-Nav zero-shot on a Unitree G1 humanoid robot with an Intel RealSense D455 camera across four representative environments: meeting room, warehouse, lobby, and parking lot. WAM-Nav consistently predicts feasible trajectories under diverse layouts and lighting conditions, validating effective zero-shot sim-to-real transfer in real-world trials.
+        </p>
+      </div>
+      <div id="real-results-carousel" class="carousel results-carousel is-centered has-text-centered is-max-desktop content">
+
+        <div class="item item-video1">
+          <video controls muted loop playsinline width="75%">
+            <source src="static/videos/WAM_real_demo_1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video controls muted loop playsinline width="75%">
+            <source src="static/videos/WAM_real_demo_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video controls muted loop playsinline width="75%">
+            <source src="static/videos/WAM_real_demo_3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video controls muted loop playsinline width="75%">
+            <source src="static/videos/WAM_real_demo_4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{anonymous2026wamnav,
+  title     = {WAM-Nav: Asymmetric Latent World-Action Modeling for Unified Visual Navigation},
+  author    = {Anonymous},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2026},
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
