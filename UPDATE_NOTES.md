@@ -1,22 +1,41 @@
-# Project page update — 2026-10-13
+# Website synchronized with the latest paper — 2026-10-13
 
-Updated the local project page against camera_ready/WAM_Nav.tex and WAM_Nav.pdf. The original page is preserved in analysis/before_website_update_20261013 outside the web directory.
+Authoritative source: 2539_WAM-Nav.pdf, 21 pages.
+SHA-256: 0935ff1f38b60f49ea43e06b7c090194451e28051567215a61018c3683e89985
 
-## Content
-- Revealed the final 12-author list, seven affiliations, and both corresponding authors.
-- Added the current camera-ready PDF and full-author BibTeX.
-- Updated the abstract, method descriptions, training/evaluation protocol, quantitative results, same-dataset adapted baseline controls, computational comparison, and real-world protocol.
-- No-Goal averages now read 171.1 m² / 75.6 s.
-- All 16 original videos remain unchanged.
+The supplied PDF is byte-identical to the current camera_ready/WAM_Nav.pdf. Table values were extracted directly from page 7 of the supplied PDF, and the complete manuscript text was compared with the previous website paper.
 
-## Figure discrepancy
-The manuscript's introductory chart shows ViPlanner Point-Goal SPL as 61.9, while Table 1 reports 62.4. The table's four SPL values (80.1, 64.5, 43.2, 61.9) average to 62.425, rounded to 62.4. The website's SVG chart uses 62.4. The manuscript itself was not changed in this website task.
+## Updated benchmark values
 
-## Design and behavior
-Responsive light layout with green accents, a video-led introduction, a dark demonstration gallery, keyboard-accessible task tabs, native figure dialogs, mobile navigation, and citation copy/download. No external JavaScript or font services are needed.
+| Task | Method | Metric | Previous | Latest |
+| --- | --- | --- | --- | --- |
+| Image-Goal | ViNT | SR (%) average | 12.6 | 12.7 |
+| Image-Goal | NoMaD | SPL (%) average | 7.6 | 7.7 |
+| Point-Goal | iPlanner | SPL (%) average | 65.1 | 65.2 |
+| No-Goal | GNM | Area (m²) average | 27.8 | 27.9 |
+| No-Goal | ViNT | Area (m²) average | 36.2 | 36.3 |
+| No-Goal | ViNT | Time (s) average | 24.4 | 24.5 |
+| No-Goal | NoMaD | Area (m²) average | 62.5 | 62.6 |
+| No-Goal | NoMaD | Time (s) average | 35.5 | 35.6 |
+
+## Other updates
+
+- Rebuilt all three website result tables and the quantitative SVG overview from the PDF's Table 1.
+- Updated NoMaD's plotted Image-Goal SPL and No-Goal area/duration, including the corresponding bar heights.
+- Refreshed the conceptual overview, architecture, qualitative results, and real-world evaluation images directly from the latest PDF.
+- Replaced the downloadable manuscript with the exact 21-page supplied PDF. Versioned paper and figure URLs avoid showing older cached files.
+- Rechecked the author list, affiliations, contacts, full abstract, method description, horizons, training/evaluation protocol, adapted controls, efficiency results, and real-world protocol against the latest paper.
+- The previous ViPlanner Point-Goal SPL inconsistency is resolved in the new paper: both its overview chart and Table 1 report 62.4.
+- The removed difficulty-level table and analysis have no counterpart on this website, so no obsolete difficulty-level claims remain.
+- WAM-Nav's main results remain 50.2% / 48.2% Image-Goal SR/SPL, 80.4% / 78.0% Point-Goal SR/SPL, 171.1 m² / 75.6 s No-Goal area/time, and 85% average real-world success.
+- All 16 original videos and the existing responsive design are preserved.
+- Changed files are backed up in analysis/before_latest_website_sync_20261013 outside the website directory.
 
 ## Publication
-This is a local update. The directory has no Git metadata; no live deployment was performed.
+
+Updated locally. The existing public GitHub Pages site was not deployed by this task. The local preview remains available at http://127.0.0.1:4173/.
 
 ## Validation
-Verified desktop (1280 × 900) and mobile (390 × 844) layouts, with no page overflow or broken visible images. Checked task tabs and keyboard navigation, mobile navigation, horizontal result-table scrolling, figure dialogs and original-asset links, citation copying, expansion of all simulation videos, playback, and automatic pausing when changing galleries. No browser errors were reported. All 160 main benchmark values were checked against Table 1; every local asset and internal anchor resolves, and the bundled PDF matches the final manuscript byte for byte.
+All 160 benchmark values match Table 1 extracted directly from the supplied PDF. All 20 numeric labels in the SVG chart independently match the paper's Figure 1. The downloadable PDF has 21 pages and is byte-identical to the supplied file, including when downloaded from the local HTTP service. All local resources and anchors resolve, and the 16 original video entries remain present. Updated source figure crops were visually inspected. JavaScript syntax passes.
+
+Browser automation was blocked before connecting to the page; the tool reported a URL protocol security restriction. No new browser interaction or responsive-layout check was completed in this synchronization pass. The existing layout/interaction code is retained, and the local service is confirmed healthy and left running.

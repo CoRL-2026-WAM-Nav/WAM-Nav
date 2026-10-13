@@ -3,8 +3,8 @@
 Project page for **WAM-Nav: Asymmetric Latent World-Action Modeling for Unified Visual Navigation**, CoRL 2026.
 
 - The author order, affiliations, corresponding contacts, abstract, method, and quantitative results follow the camera-ready paper.
-- The bundled paper is at static/pdfs/WAM-Nav.pdf. Replace this copy when revising the manuscript.
-- The overview diagram is extracted from the final paper. The native SVG results chart follows Table 1, including corrected No-Goal results (171.1 m² / 75.6 s) and ViPlanner Point-Goal SPL (62.4). The architecture and qualitative figures are synchronized with the final assets.
+- The bundled paper at static/pdfs/WAM-Nav.pdf is the exact 21-page 2539_WAM-Nav.pdf supplied on 2026-10-13. Paper and figure URLs carry a version tag to refresh cached content.
+- The overview diagram, architecture, and qualitative/real-world figures are rendered directly from the latest PDF. The native SVG results chart and all result tables use Table 1, including the updated baseline macro averages. The former ViPlanner SPL discrepancy has been corrected in the source paper.
 - All 4 real-world and 12 simulation videos are preserved. Local posters and on-demand video loading keep the initial page lightweight.
 - The page includes task-specific result tables, separate VLN-N1-adapted controls, efficiency results, figure enlargement, video galleries, and a downloadable/copyable BibTeX citation.
 - HTML, CSS, and JavaScript run without a build step, external font services, or JavaScript CDNs. Paths are relative so the page works on GitHub Pages under /WAM-Nav/.
