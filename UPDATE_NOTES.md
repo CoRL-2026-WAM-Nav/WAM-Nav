@@ -39,3 +39,11 @@ Updated locally. The existing public GitHub Pages site was not deployed by this 
 All 160 benchmark values match Table 1 extracted directly from the supplied PDF. All 20 numeric labels in the SVG chart independently match the paper's Figure 1. The downloadable PDF has 21 pages and is byte-identical to the supplied file, including when downloaded from the local HTTP service. All local resources and anchors resolve, and the 16 original video entries remain present. Updated source figure crops were visually inspected. JavaScript syntax passes.
 
 Browser automation was blocked before connecting to the page; the tool reported a URL protocol security restriction. No new browser interaction or responsive-layout check was completed in this synchronization pass. The existing layout/interaction code is retained, and the local service is confirmed healthy and left running.
+
+## Visual refinement · 2026-10-13
+
+- Added `static/css/editorial.css`: a warm-white and forest-green editorial layout, split hero, serif display typography, a compact author block, parallel method steps, refined figure frames, and a darker demonstration gallery.
+- Added task-specific score summaries derived from each existing WAM-Nav average row. Research content, benchmark table values, PDF, citations, and 16 demonstration videos are retained.
+- Responsive styles stack the hero and method steps, preserve horizontally scrollable results, and keep method names visible on small screens. Existing keyboard controls, reduced-motion preferences, figure dialogs and video controls remain in place.
+- Backup: `analysis/before_visual_refinement_20261013/` in the parent workspace.
+- Browser visual and interaction QA remains unavailable because the earlier browser security policy rejected the local preview action. Static source/data/resource checks are used; this is not a claim of completed browser QA.
